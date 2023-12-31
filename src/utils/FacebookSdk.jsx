@@ -17,7 +17,7 @@ const clientId = '652064637073116';  // Reemplaza con tu ID de aplicación de Fa
 const redirectUri = 'https://segiuri.netlify.app';
 
 // Construir la URL de inicio de sesión de Facebook
-const facebookLoginUrl = `https://www.facebook.com/v18.0/dialog/oauth?client_id=${clientId}&redirect_uri=${redirectUri}`;
+const facebookLoginUrl = `https://www.facebook.com/v18.0/dialog/oauth?client_id=${clientId}`;
 
 // Configurar la solicitud
 http.open('GET', facebookLoginUrl, true);
