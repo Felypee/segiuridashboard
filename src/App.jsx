@@ -36,7 +36,8 @@ function App() {
           <main className="content">
           {isAuthenticated ?<Topbar setIsSidebar={setIsSidebar} /> : undefined}       
               <Routes>
-                <Route exact path='/' element={<PrivateRoute/>}>
+              <Route path="/" element={<Login/>}></Route>
+                {/* <Route exact path='/' element={<PrivateRoute/>}>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/team" element={<Team />} />
                   <Route path="/contacts" element={<Contacts />} />
@@ -48,8 +49,8 @@ function App() {
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/geography" element={<Geography />} />
-                </Route>
-                <Route path="/login" element={<Login/>}></Route>
+                </Route> */}
+               
                
             </Routes>
           </main>
