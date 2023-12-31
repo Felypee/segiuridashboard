@@ -1,19 +1,3 @@
-export const initFacebookSdk = () => {
-  return new Promise((resolve, reject) => {
-    // Load the Facebook SDK asynchronously
-    window.fbAsyncInit = () => {
-      const result = window.FB.init({
-        appId: "652064637073116",
-        cookie: true,
-        xfbml: true,
-        version: "v18.0",
-      });
-      // Resolve the promise when the SDK is loaded
-      resolve();
-    };
-  });
-};
-
 export const getFacebookLoginStatus = () => {
   return new Promise((resolve, reject) => {
     window.FB.getLoginStatus((response) => {
@@ -22,13 +6,44 @@ export const getFacebookLoginStatus = () => {
   });
 };
 
-export const fbLogin = async () => {
-  return window.FB.login(
-    function (response) {
-      console.log(response);
-    },
-    {
-      config_id: "233305346384438",
-    }
+export const FacebookBButton = () => {
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+  const onLoginClick = () =>
+    window.FB.login(
+      function (response) {
+        console.log(response);
+      },
+      {
+        config_id: "233305346384438",
+      }
+    );
+
+  useEffect(() => {
+    window.fbAsyncInit = () => {
+      window.FB.init({
+        appId: "652064637073116",
+        cookie: true,
+        xfbml: true,
+        version: "v18.0",
+      });
+    };
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  }, []);
+
+  return (
+    <div>
+      <button onClick={onLoginClick}>Login with Facebook</button>
+    </div>
   );
 };

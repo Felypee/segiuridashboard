@@ -5,6 +5,7 @@ import { useTheme } from "@emotion/react";
 import { tokens } from "../../theme";
 import { FacebookButton } from "../../components/FacebookButton";
 import FBInit from "../../components/NewFaceButton";
+import { FacebookBButton } from "../../utils/FacebookSdk";
 
 export const Login = ()=>{
 
@@ -57,7 +58,7 @@ export const Login = ()=>{
                         >
                         Automatiza tu servicio al cliente, escala más ventas y gana más dinero.
                         </Typography>
-                        <FBInit></FBInit>
+                        <FacebookBButton></FacebookBButton>
                         {/* <FacebookButton></FacebookButton> */}
                     </Box>
                 </Box>
