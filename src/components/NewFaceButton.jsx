@@ -8,6 +8,7 @@ import { fbLogin, getFacebookLoginStatus, initFacebookSdk } from "../utils/Faceb
     console.log("Started use effect");
     initFacebookSdk().then(() => {
       getFacebookLoginStatus().then((response) => {
+        console.log("getFacebookLoginStatus ", response);
         if (response == null) {
           console.log("No login status for the person");
         } else {
@@ -20,15 +21,8 @@ import { fbLogin, getFacebookLoginStatus, initFacebookSdk } from "../utils/Faceb
 
 
   const  login= ()=> {
-    console.log("reached log in button");
-    fbLogin().then((response) => {
-      console.log(response);
-      if (response.status === "connected") {
-        console.log("Person is connected");
-      } else {
-        // something
-      }
-    });
+
+    fbLogin();
   }
 
 

@@ -2,7 +2,7 @@ export const initFacebookSdk = () => {
   return new Promise((resolve, reject) => {
     // Load the Facebook SDK asynchronously
     window.fbAsyncInit = () => {
-      window.FB.init({
+      const result = window.FB.init({
         appId: "652064637073116",
         cookie: true,
         xfbml: true,
@@ -22,15 +22,13 @@ export const getFacebookLoginStatus = () => {
   });
 };
 
-export const fbLogin = () => {
-  return new Promise((resolve, reject) => {
-    window.FB.login(
-      (response) => {
-        resolve(response);
-      },
-      {
-        config_id: "233305346384438",
-      }
-    );
-  });
+export const fbLogin = async () => {
+  return window.FB.login(
+    function (response) {
+      console.log(response);
+    },
+    {
+      config_id: "233305346384438",
+    }
+  );
 };
