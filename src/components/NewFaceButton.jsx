@@ -7,6 +7,7 @@ import { fbLogin, getFacebookLoginStatus, initFacebookSdk } from "../utils/Faceb
   useEffect(() => {
     console.log("Started use effect");
     initFacebookSdk().then(() => {
+        console.log("initFacebookSdk ", response);
       getFacebookLoginStatus().then((response) => {
         console.log("getFacebookLoginStatus ", response);
         if (response == null) {
