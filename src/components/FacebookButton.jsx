@@ -22,7 +22,7 @@ export const FacebookButton = ()=>{
     return (
         <ReactFacebookLogin
         appId="652064637073116"
-        autoLoad={true}
+        autoLoad={false}
         onClick={componentClicked}
         callback={responseFacebook} />
     )
