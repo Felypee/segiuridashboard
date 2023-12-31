@@ -45,7 +45,9 @@ export const FacebookBButton = () => {
 
   return (
     <div>
-      <button onClick={onLoginClick}>Login with Facebook</button>
+       <fb:login-button scope="public_profile,email" >
+        Butttoooon
+    </fb:login-button>
     </div>
   );
 };
