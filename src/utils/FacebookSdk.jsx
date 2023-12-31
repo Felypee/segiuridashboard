@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 export const FacebookBButton = () => {
   // const [isLoggedin, setIsLoggedin] = useState(false);
 
-  const onLoginClick = () =>
-    window.FB.login(
+  const onLoginClick = async () =>
+    await window.FB.login(
       function (response) {
         console.log(response);
       },
