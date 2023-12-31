@@ -30,7 +30,7 @@ export const Login = ()=>{
                 padding={"15px"}
                 borderRadius={"12px"}
                 >
-                    <img style={{borderRadius: '12px'}} src="../src/assets/logo_sigiuri.svg"  width="30%" height="50%"></img>
+                    <img style={{borderRadius: '12px'}} src="/logo_sigiuri.svg"  width="30%" height="50%"></img>
                     <Box
                     display="flex"
                     flexDirection="column"
