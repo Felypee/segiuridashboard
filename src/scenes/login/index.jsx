@@ -57,7 +57,7 @@ export const Login = ()=>{
                         Automatiza tu servicio al cliente, escala más ventas y gana más dinero.
                         </Typography>
 
-                        <FacebookButton></FacebookButton>
+                        {/* <FacebookButton></FacebookButton> */}
                     </Box>
                 </Box>
         </div>
