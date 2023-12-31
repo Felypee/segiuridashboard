@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export const getFacebookLoginStatus = () => {
-  return new Promise((resolve, reject) => {
-    window.FB.getLoginStatus((response) => {
-      resolve(response);
-    });
-  });
-};
+// export const getFacebookLoginStatus = () => {
+//   return new Promise((resolve, reject) => {
+//     window.FB.getLoginStatus((response) => {
+//       resolve(response);
+//     });
+//   });
+// };
 
 export const FacebookBButton = () => {
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  // const [isLoggedin, setIsLoggedin] = useState(false);
 
   const onLoginClick = () =>
     window.FB.login(
