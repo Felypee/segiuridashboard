@@ -24,8 +24,13 @@ export const getFacebookLoginStatus = () => {
 
 export const fbLogin = () => {
   return new Promise((resolve, reject) => {
-    window.FB.login((response) => {
-      resolve(response);
-    });
+    window.FB.login(
+      (response) => {
+        resolve(response);
+      },
+      {
+        config_id: "233305346384438",
+      }
+    );
   });
 };
