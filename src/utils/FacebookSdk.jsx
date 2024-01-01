@@ -17,7 +17,7 @@ export const FacebookBButton = () => {
         console.log(response);
       },
       {
-        config_id: "925321892284190",
+        config_id: "750324073630091",
       }
     );
 
