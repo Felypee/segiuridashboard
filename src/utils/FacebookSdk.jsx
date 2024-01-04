@@ -20,7 +20,7 @@ export const FacebookBButton = () => {
     await window.FB.login(
       function (response) {
         console.log(response);
-        login()
+        login(response.authResponse)
       },
       {
         config_id: "925321892284190",
