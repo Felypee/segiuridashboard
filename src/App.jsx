@@ -17,55 +17,50 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import { useContext } from "react";
-import { authContext } from "./context/auth_context";
+import { AuthContext, login } from "./context/auth_context";
 import { Login } from "./scenes/login";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const loginFunction = login();
   const [isSidebar, setIsSidebar] = useState(true);
-  const isAuthenticated = useContext(authContext).user
+  const isAuthenticated = useContext(AuthContext).user
 
   return (
+    <AuthContext.Provider value={login}>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-        {isAuthenticated ?<Sidebar isSidebar={isSidebar} /> : undefined}
+        {useContext(AuthContext).user ?<Sidebar isSidebar={isSidebar} /> : undefined}
 
           <video style={{objectFit: "cover"}} src={video} autoPlay loop muted height="100%" width="100%"/>
           <main className="content">
-          {isAuthenticated ?<Topbar setIsSidebar={setIsSidebar} /> : undefined}       
+          {useContext(AuthContext).user ?<Topbar setIsSidebar={setIsSidebar} /> : undefined}       
               <Routes>
-              <Route path="/" element={<Login/>}></Route>
-                {/* <Route exact path='/' element={<PrivateRoute/>}>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/team" element={<Team />} />
-                  <Route path="/contacts" element={<Contacts />} />
-                  <Route path="/invoices" element={<Invoices />} />
-                  <Route path="/form" element={<Form />} />
-                  <Route path="/bar" element={<Bar />} />
-                  <Route path="/pie" element={<Pie />} />
-                  <Route path="/line" element={<Line />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/calendar" element={<Calendar />} />
-                  <Route path="/geography" element={<Geography />} />
-                </Route> */}
-               
+              {useContext(AuthContext).user == null ? <Route path="/" element={<Login/>}/>: undefined} 
+              isAuthenticated.user  ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>
+              isAuthenticated.user  ?   <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>
+              isAuthenticated.user  ?      <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>
+               isAuthenticated.user  ?      <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>
+             
+                
                
             </Routes>
           </main>
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
 export default App;
 
 
-function PrivateRoute({ element: element, ...rest }) {
-  const isAuthenticated = useContext(authContext)
+function PrivateRoute({ element, path }) {
+  const isAuthenticated = useContext(AuthContext)
   return (
-    isAuthenticated.user? <Outlet /> : <Navigate to="/login" />
+    isAuthenticated.user  ? <Route element path/> : <Route path="/" element={<Login/>}/>  
   );
 }
