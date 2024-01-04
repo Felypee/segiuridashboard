@@ -57,10 +57,3 @@ function App() {
 
 export default App;
 
-
-function PrivateRoute({ element, path }) {
-  const isAuthenticated = useContext(AuthContext)
-  return (
-    isAuthenticated.user  ? <Route element path/> : <Route path="/" element={<Login/>}/>  
-  );
-}

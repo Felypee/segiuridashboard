@@ -1,6 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { Box, Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import { login } from "../context/auth_context";
 import { tokens } from "../theme";
 
 // export const getFacebookLoginStatus = () => {
@@ -19,6 +20,7 @@ export const FacebookBButton = () => {
     await window.FB.login(
       function (response) {
         console.log(response);
+        login()
       },
       {
         config_id: "925321892284190",
