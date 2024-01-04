@@ -1,7 +1,8 @@
 import { useTheme } from "@emotion/react";
 import { Box, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { login } from "../context/auth_context";
+import { useAuth } from "../context/auth_context";
+
 import { tokens } from "../theme";
 
 // export const getFacebookLoginStatus = () => {

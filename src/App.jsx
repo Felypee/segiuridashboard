@@ -17,7 +17,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import { useContext } from "react";
-import { AuthContext, login, useAuth } from "./context/auth_context";
+import {  useAuth } from "./context/auth_context";
 import { Login } from "./scenes/login";
 import { useEffect } from "preact/hooks";
 
@@ -41,7 +41,7 @@ function App() {
           {user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
             <Routes>
               {console.log("User context ui", user)}
-              {user == null ?? <Route path="/" element={<Login/>}/>} 
+              {user == null ? <Route path="/" element={<Login/>}/> : undefined} 
               {user ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
               {user ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
               {user ? <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>}
