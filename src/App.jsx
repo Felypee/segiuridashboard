@@ -59,6 +59,7 @@ export default App;
 
 
 const  AuthResetUi = ({children})=>{
+  console.log("children", children)
   useEffect(()=>{
 
 
