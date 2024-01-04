@@ -19,12 +19,14 @@ import Calendar from "./scenes/calendar/calendar";
 import { useContext } from "react";
 import { AuthContext, login } from "./context/auth_context";
 import { Login } from "./scenes/login";
+import { useEffect } from "preact/hooks";
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
+    <AuthResetUi>
     <AuthContext.Provider value={login}>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -48,8 +50,18 @@ function App() {
       </ThemeProvider>
     </ColorModeContext.Provider>
     </AuthContext.Provider>
+    </AuthResetUi>
   );
 }
 
 export default App;
 
+
+
+const  AuthResetUi = (child)=>{
+  useEffect(()=>{
+
+
+  }, [useContext(AuthContext).user])
+  return child;
+}
