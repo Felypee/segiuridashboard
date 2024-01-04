@@ -58,10 +58,10 @@ export default App;
 
 
 
-const  AuthResetUi = (child)=>{
+const  AuthResetUi = ({children})=>{
   useEffect(()=>{
 
 
   }, [useContext(AuthContext).user])
-  return child;
+  return children;
 }
