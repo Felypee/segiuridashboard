@@ -22,9 +22,7 @@ import { Login } from "./scenes/login";
 
 function App() {
   const [theme, colorMode] = useMode();
-  const loginFunction = login();
   const [isSidebar, setIsSidebar] = useState(true);
-  const isAuthenticated = useContext(AuthContext).user
 
   return (
     <AuthContext.Provider value={login}>
@@ -36,16 +34,13 @@ function App() {
 
           <video style={{objectFit: "cover"}} src={video} autoPlay loop muted height="100%" width="100%"/>
           <main className="content">
-          {useContext(AuthContext).user ?<Topbar setIsSidebar={setIsSidebar} /> : undefined}       
-              <Routes>
+          {useContext(AuthContext).user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
+            <Routes>
               {useContext(AuthContext).user == null ? <Route path="/" element={<Login/>}/>: undefined} 
-              isAuthenticated.user  ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>
-              isAuthenticated.user  ?   <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>
-              isAuthenticated.user  ?      <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>
-               isAuthenticated.user  ?      <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>
-             
-                
-               
+              {useContext(AuthContext).user  ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
+              {useContext(AuthContext).user  ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
+              {useContext(AuthContext).user  ? <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>}
+              {useContext(AuthContext).user ? <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>}
             </Routes>
           </main>
         </div>
