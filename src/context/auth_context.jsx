@@ -7,6 +7,7 @@ export const AuthContext =  createContext({
 
 
 export const login = (userData)=>{
+    console.log("Login function")
     return {
         user: userData
     }
