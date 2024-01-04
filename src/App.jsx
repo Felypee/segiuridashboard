@@ -34,19 +34,18 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-        {user ?<Sidebar isSidebar={isSidebar} /> : undefined}
-
+       
           <video style={{objectFit: "cover"}} src={video} autoPlay loop muted height="100%" width="100%"/>
           <main className="content">
           {user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
             <Routes>
-              {console.log("User context ui", user)}
               {user == null ? <Route path="/" element={<Login/>}/> : undefined} 
               {user ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
               {user ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
               {user ? <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>}
               {user ? <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>}
             </Routes>
+            {/* {user ? <Sidebar isSidebar={isSidebar} /> : undefined} */}
           </main>
         </div>
       </ThemeProvider>
