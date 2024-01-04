@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 
  const AuthContext =  createContext({
@@ -11,7 +11,7 @@ export const useAuth = ()=>{
 
 
 export const AuthProvider = (props)=>{
-    const [user, setUser] =setState(null)
+    const [user, setUser] = useState(null)
 
     const value = {
         user,
