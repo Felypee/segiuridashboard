@@ -36,6 +36,7 @@ function App() {
           <main className="content">
           {useContext(AuthContext).user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
             <Routes>
+              {console.log("User context ui", useContext(AuthContext).user)}
               {useContext(AuthContext).user == null ?? <Route path="/" element={<Login/>}/>} 
               {useContext(AuthContext).user ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
               {useContext(AuthContext).user ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
