@@ -51,12 +51,43 @@ export const Login = ()=>{
 
                         <Typography
                         variant="h5"
+                        fontWeight="600"
+                        textAlign={"center"}
+                        color={colors.grey[100]}
+                        sx={{ m: "0px 10px 25px 10px" }}
+                        >
+                        Automatiza tu servicio al cliente, escala más ventas y gana más dinero.
+                       
+                        </Typography>
+                        <Typography
+                        variant="h5"
+                        textAlign={"center"}
+                        color={colors.grey[100]}
+                    
+                        sx={{ m: "0px 10px 5px 10px" }}
+                        >
+                         * Automatiza tu whatsapp.
+                       
+                        </Typography>
+                        <Typography
+                        variant="h5"
+                        textAlign={"center"}
+                        color={colors.grey[100]}
+                    
+                        sx={{ m: "0px 10px 5px 10px" }}
+                        >
+                         * Automatiza tu Facebook messenger.
+                       
+                        </Typography>
+                        <Typography
+                        variant="h5"
                         textAlign={"center"}
                         color={colors.grey[100]}
                     
                         sx={{ m: "0px 10px 25px 10px" }}
                         >
-                        Automatiza tu servicio al cliente, escala más ventas y gana más dinero.
+                         * Automatiza tu propio chat.
+                       
                         </Typography>
                         <FacebookBButton></FacebookBButton>
                         {/* <FacebookButton></FacebookButton> */}

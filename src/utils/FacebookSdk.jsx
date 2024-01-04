@@ -1,4 +1,7 @@
+import { useTheme } from "@emotion/react";
+import { Box, Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import { tokens } from "../theme";
 
 // export const getFacebookLoginStatus = () => {
 //   return new Promise((resolve, reject) => {
@@ -9,7 +12,8 @@ import { useEffect, useState } from "react";
 // };
 
 export const FacebookBButton = () => {
-  // const [isLoggedin, setIsLoggedin] = useState(false);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const onLoginClick = async() =>
     await window.FB.login(
@@ -45,7 +49,20 @@ export const FacebookBButton = () => {
 
   return (
     <div>
-      <button onClick={onLoginClick}>Login with Facebook</button>
+      <Box>
+          <Button
+            sx={{
+              backgroundColor: colors.blueAccent[700],
+              color: colors.grey[100],
+              fontSize: "14px",
+              fontWeight: "bold",
+              padding: "10px 20px",
+            }}
+            onClick={onLoginClick}
+          >
+            Login with Facebook
+          </Button>
+        </Box> 
     </div>
   );
 };
