@@ -15,12 +15,12 @@ import { tokens } from "../theme";
 export const FacebookBButton = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const {user, setUser} = useAuth()
   const onLoginClick = async() =>
     await window.FB.login(
       function (response) {
         console.log("Response data: response");
-        login(response.authResponse)
+        setUser(response.authResponse)
       },
       {
         config_id: "925321892284190",

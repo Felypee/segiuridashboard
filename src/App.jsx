@@ -17,7 +17,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import { useContext } from "react";
-import { AuthContext, login } from "./context/auth_context";
+import { AuthContext, login, useAuth } from "./context/auth_context";
 import { Login } from "./scenes/login";
 import { useEffect } from "preact/hooks";
 
@@ -25,32 +25,34 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
+  const {user, setUser} = useAuth()
+
   return (
-    <AuthResetUi>
-    <AuthContext.Provider value={login}>
+
+   
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-        {useContext(AuthContext).user ?<Sidebar isSidebar={isSidebar} /> : undefined}
+        {user ?<Sidebar isSidebar={isSidebar} /> : undefined}
 
           <video style={{objectFit: "cover"}} src={video} autoPlay loop muted height="100%" width="100%"/>
           <main className="content">
-          {useContext(AuthContext).user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
+          {user ? <Topbar setIsSidebar={setIsSidebar} /> : undefined}       
             <Routes>
-              {console.log("User context ui", useContext(AuthContext).user)}
-              {useContext(AuthContext).user == null ?? <Route path="/" element={<Login/>}/>} 
-              {useContext(AuthContext).user ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
-              {useContext(AuthContext).user ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
-              {useContext(AuthContext).user ? <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>}
-              {useContext(AuthContext).user ? <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>}
+              {console.log("User context ui", user)}
+              {user == null ?? <Route path="/" element={<Login/>}/>} 
+              {user ? <Route  path="/" element={<Dashboard />}/> : <Route path="/" element={<Login/>}/>}
+              {user ? <Route path="/team" element={<Team />} /> : <Route path="/" element={<Login/>}/>}
+              {user ? <Route path="/contacts" element={<Contacts />} /> : <Route path="/" element={<Login/>}/>}
+              {user ? <Route path="/geography" element={<Geography />} />  : <Route path="/" element={<Login/>}/>}
             </Routes>
           </main>
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
-    </AuthContext.Provider>
-    </AuthResetUi>
+
+
   );
 }
 
@@ -58,11 +60,3 @@ export default App;
 
 
 
-const  AuthResetUi = ({children})=>{
-  console.log("children", children)
-  useEffect(()=>{
-
-
-  }, [useContext(AuthContext).user])
-  return children;
-}
