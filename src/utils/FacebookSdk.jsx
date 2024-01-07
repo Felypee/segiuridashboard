@@ -20,7 +20,7 @@ export const FacebookBButton = () => {
   const onLoginClick = async() =>
     await window.FB.login(
       function (response) {
-        console.log("Response data: response");
+        console.log("Response data:" ,response);
         setUser(response.authResponse)
       },
       {
