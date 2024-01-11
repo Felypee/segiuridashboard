@@ -7,7 +7,12 @@ export const getMetaUserPages = async (accessToken) => {
     const response = await axios.get(
       `${metaApi}/me/accounts?access_token=${accessToken}`
     );
-    console.log("getMetaUserPages Response:  ", response);
+    console.log("getMetaUserPages Response:  ", response.data[0]);
+
+    const responseSaved = await axios.post(
+      `https://facebookaichat.fly.dev/savePageInfo`,
+      response.data[0]
+    );
   } catch (error) {
     throw error;
   }
