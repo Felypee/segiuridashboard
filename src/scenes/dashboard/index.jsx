@@ -14,14 +14,17 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import { getMetaUserPages } from "../../features/user/service/user_service";
 import { useEffect } from "react";
+import { useAuth } from "../../context/auth_context";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const {user, setUser} = useAuth()
+  console.log(`Access token ${user.accessToken}`);
   useEffect(() => {
   
       try {
-        getMetaUserPages()
+        getMetaUserPages(user.accessToken)
         // Aquí puedes manejar la data como desees
       } catch (error) {
         console.error('Error en la petición GET', error);
