@@ -24,7 +24,7 @@ const Dashboard = () => {
   useEffect(() => {
   
       try {
-        getMetaUserPages(user.accessToken)
+        getMetaUserPages(user.accessToken, user.userID)
         // Aquí puedes manejar la data como desees
       } catch (error) {
         console.error('Error en la petición GET', error);
