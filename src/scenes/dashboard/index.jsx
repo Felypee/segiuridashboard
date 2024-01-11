@@ -12,11 +12,22 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { getMetaUserPages } from "../../features/user/service/user_service";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  useEffect(() => {
+  
+      try {
+        getMetaUserPages()
+        // Aquí puedes manejar la data como desees
+      } catch (error) {
+        console.error('Error en la petición GET', error);
+        // Puedes manejar el error aquí también
+      }
 
+  }, []);
   return (
     <Box m="20px">
       {/* HEADER */}
