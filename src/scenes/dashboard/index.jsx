@@ -13,6 +13,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import { getMetaUserPages } from "../../features/user/service/user_service";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const theme = useTheme();
