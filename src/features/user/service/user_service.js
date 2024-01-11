@@ -7,7 +7,7 @@ export const getMetaUserPages = async (accessToken) => {
     const response = await axios.get(
       `${metaApi}/me/accounts?access_token=${accessToken}`
     );
-    debugPrint("Response ", response);
+    console.log("getMetaUserPages Response:  ", response);
   } catch (error) {
     throw error;
   }
