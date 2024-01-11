@@ -24,7 +24,7 @@ export const FacebookBButton = () => {
         setUser(response.authResponse)
       },
       {
-        config_id: "399416789315523",
+        config_id: "925321892284190",
       }
     );
 
