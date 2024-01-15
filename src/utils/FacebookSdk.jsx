@@ -26,6 +26,7 @@ export const FacebookBButton = () => {
       {
         config_id: "885580573276764",
         response_type: 'code', 
+        override_default_response_type: true,
       }
     );
 
