@@ -25,6 +25,7 @@ export const FacebookBButton = () => {
       },
       {
         config_id: "885580573276764",
+        response_type: 'code', 
       }
     );
 
