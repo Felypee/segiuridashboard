@@ -20,7 +20,6 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const {user, setUser} = useAuth()
-  console.log(`Access token ${user.accessToken}`);
   useEffect(() => {
   
       try {
