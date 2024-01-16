@@ -22,13 +22,13 @@ const Dashboard = () => {
   const {user, setUser} = useAuth()
   useEffect(() => {
   
-      try {
-        getMetaUserPages(user.accessToken, user.userID)
-        // Aquí puedes manejar la data como desees
-      } catch (error) {
-        console.error('Error en la petición GET', error);
-        // Puedes manejar el error aquí también
-      }
+      // try {
+      //   getMetaUserPages(user.accessToken, user.userID)
+      //   // Aquí puedes manejar la data como desees
+      // } catch (error) {
+      //   console.error('Error en la petición GET', error);
+      //   // Puedes manejar el error aquí también
+      // }
 
   }, []);
   return (
